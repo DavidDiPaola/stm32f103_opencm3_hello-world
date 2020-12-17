@@ -59,8 +59,7 @@ disassemble: $(ELF)
 
 .PHONY: libopencm3
 libopencm3:
-	# TODO use target CC, etc
-	$(MAKE) -C lib/opencm3 TARGETS=stm32/f1
+	$(MAKE) -C lib/opencm3 PREFIX="$(TARGET_PREFIX)" TARGETS=stm32/f1
 
 %.o: %.c libopencm3
 	$(TARGET_GCC) $(TARGET_CFLAGS) -c $< -o $@
