@@ -12,15 +12,15 @@
 ### Build and flash
 
 1. Build: `make`
-  - Build with alternate toolchain: `make TARGET_PREFIX=arm-something-else-`
+    - Build with alternate toolchain: `make TARGET_PREFIX=arm-something-else-`
 2. Flash: `make flash`
-  - Flash with alternate programmer: `make OPENOCD_INTERFACE=interface/stlink-v2.cfg flash`
+    - Flash with alternate programmer: `make OPENOCD_INTERFACE=interface/stlink-v2.cfg flash`
 
 ### Debugging
 
 1. Start OpenOCD debug server: `make run-debug-server`
 2. Connect GDB in TUI mode: `make run-debug-client`
-  - Use alternate GDB: `make TARGET_GDB=some-other-gdb run-debug-client`
+    - Use alternate GDB: `make TARGET_GDB=some-other-gdb run-debug-client`
 
 ## Licenses
 
