@@ -4,6 +4,7 @@ ELF = flash.elf
 
 TARGET_PREFIX ?= arm-none-eabi-
 TARGET_GCC ?= $(TARGET_PREFIX)gcc
+TARGET_GDB ?= gdb-multiarch
 TARGET_OBJDUMP ?= $(TARGET_PREFIX)objdump
 
 OPENOCD ?= openocd
@@ -28,6 +29,8 @@ TARGET_LFLAGS = \
 		-nostdlib -lc -lgcc -lnosys \
 		-T./lib/opencm3/lib/stm32/f1/stm32f103x8.ld -L./lib/opencm3/lib/ \
 	-Wl,--end-group
+TARGET_GDBFLAGS = \
+	-tui -quiet 
 
 .PHONY: all
 all: $(ELF)
@@ -41,8 +44,8 @@ run-debug-server:
 	$(OPENOCD) $(OPENOCD_FLAGS)
 
 .PHONY: run-debug-client
-run-debug-client:
-	$(TARGET_GDB) TODO
+run-debug-client: gdbinit $(ELF)
+	$(TARGET_GDB) $(TARGET_GDBFLAGS) -x gdbinit $(ELF)
 
 .PHONY: clean
 clean:
