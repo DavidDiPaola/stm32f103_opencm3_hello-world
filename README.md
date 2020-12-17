@@ -1,5 +1,9 @@
 # STM32F103 libopencm3 hello world
 
+Basic example of libopencm3 on a STM32F103 "blue pill" board.
+
+[Main repository](https://gitlab.com/DavidDiPaola/stm32f103_opencm3_hello-world)
+
 ## Requirements
 
 - ARM toolchain (Debian/Ubuntu: `sudo apt install gcc-arm-none-eabi`)
