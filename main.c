@@ -1,3 +1,8 @@
+/*
+2020 David DiPaola
+Licensed under CC0
+*/
+
 #include <libopencm3/stm32/rcc.h>
 #include <libopencm3/stm32/gpio.h>
 

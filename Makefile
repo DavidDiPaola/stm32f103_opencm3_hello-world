@@ -1,3 +1,6 @@
+# 2020 David DiPaola
+# Licensed under CC0
+
 SRC = main.c
 OBJ = $(SRC:.c=.o)
 ELF = flash.elf
