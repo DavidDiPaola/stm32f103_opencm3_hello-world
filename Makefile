@@ -14,18 +14,20 @@ OPENOCD_FLAGS ?= \
 	--file $(OPENOCD_TARGET)
 
 TARGET_SFLAGS = \
-	--static -nostartfiles -g3 -Os \
+	-Os -g3 \
+	--static -nostartfiles \
 	-fno-common -ffunction-sections -fdata-sections \
 	-I./lib/opencm3/include
 TARGET_CFLAGS = \
 	-std=c99 \
-	-mcpu=cortex-m3 -mthumb -msoft-float -DSTM32F1 \
+	-mcpu=cortex-m3 -mthumb -msoft-float \
+	-DSTM32F1 \
 	$(TARGET_SFLAGS)
 TARGET_LFLAGS = \
-	-Wl,--start-group -lc -lgcc -lnosys -Wl,--end-group \
-	-nostdlib \
-	-L./lib/opencm3/lib/ \
-	-T./lib/opencm3/lib/stm32/f1/stm32f103x8.ld
+	-Wl,--start-group \
+		-nostdlib -lc -lgcc -lnosys \
+		-T./lib/opencm3/lib/stm32/f1/stm32f103x8.ld -L./lib/opencm3/lib/ \
+	-Wl,--end-group
 
 .PHONY: all
 all: $(ELF)
