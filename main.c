@@ -73,7 +73,7 @@ main(void) {
 	print("hello world!" "\r\n");
 
 	for (;;) {
-		for (int i=0; i<200000l; i++) {
+		for (int i=0; i<800000l; i++) {
 			__asm__("nop");
 		}
 
