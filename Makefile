@@ -12,7 +12,7 @@ TARGET_OBJDUMP ?= $(TARGET_PREFIX)objdump
 TARGET_SIZE ?= $(TARGET_PREFIX)size
 
 OPENOCD ?= openocd
-OPENOCD_INTERFACE ?= interface/ftdi/dp_busblaster.cfg
+OPENOCD_INTERFACE ?= interface/stlink-v2.cfg
 OPENOCD_TARGET ?= target/stm32f1x.cfg
 OPENOCD_FLAGS ?= \
 	--file $(OPENOCD_INTERFACE) \

@@ -18,7 +18,7 @@ Basic example of libopencm3 on a STM32F103 "blue pill" board.
 1. Build: `make`
     - Build with alternate toolchain: `make TARGET_PREFIX=arm-something-else-`
 2. Flash: `make flash`
-    - Flash with alternate programmer: `make OPENOCD_INTERFACE=interface/stlink-v2.cfg flash`
+    - Flash with alternate programmer: `make OPENOCD_INTERFACE=interface/ftdi/dp_busblaster.cfg flash`
 
 ### Debugging
 
