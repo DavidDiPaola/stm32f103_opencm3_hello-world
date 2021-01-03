@@ -9,6 +9,7 @@ TARGET_PREFIX ?= arm-none-eabi-
 TARGET_GCC ?= $(TARGET_PREFIX)gcc
 TARGET_GDB ?= gdb-multiarch
 TARGET_OBJDUMP ?= $(TARGET_PREFIX)objdump
+TARGET_SIZE ?= $(TARGET_PREFIX)size
 
 OPENOCD ?= openocd
 OPENOCD_INTERFACE ?= interface/ftdi/dp_busblaster.cfg
@@ -61,7 +62,11 @@ realclean: clean
 
 .PHONY: disassemble
 disassemble: $(ELF)
-	$(TARGET_OBJDUMP) --disassemble-all $(ELF)
+	$(TARGET_OBJDUMP) --disassemble-all $<
+
+.PHONY: size
+size: $(ELF)
+	$(TARGET_SIZE) $<
 
 .PHONY: libopencm3
 libopencm3:
