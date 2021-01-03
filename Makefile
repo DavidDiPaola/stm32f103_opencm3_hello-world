@@ -1,4 +1,4 @@
-# 2020 David DiPaola
+# 2020,2021 David DiPaola
 # Licensed under CC0
 
 SRC = main.c

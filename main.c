@@ -13,6 +13,12 @@ Licensed under CC0
 
 void
 init_led(void) {
+	/*
+	LED pin: GPIO C 13
+	GPIO C clock tree: (see DS5319 figure 1)
+		AHB --> APB2 --> GPIO C
+	*/
+
 	rcc_periph_clock_enable(RCC_GPIOC);
 
 	gpio_set_mode(GPIOC, GPIO_MODE_OUTPUT_2_MHZ, GPIO_CNF_OUTPUT_PUSHPULL, GPIO13);
@@ -23,9 +29,9 @@ init_led(void) {
 void
 init_usart1(uint32_t baud) {
 	/*
-	UART 1 clock tree: (DS5319 figure 1)
+	UART 1 clock tree: (see DS5319 figure 1)
 		AHB --> APB2 --> USART 1
-	UART 1 pins: (DS5319 table 5)
+	UART 1 pins: (see DS5319 table 5)
 		TX: GPIO A  9
 		RX: GPIO A 10
 	*/
