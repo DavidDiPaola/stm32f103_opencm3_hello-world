@@ -44,6 +44,10 @@ init_usart1(uint32_t baud) {
 		GPIO_CNF_INPUT_PULL_UPDOWN,
 		GPIO_USART1_RX
 	);
+	gpio_set(
+		GPIOA,
+		GPIO10
+	);
 
 	rcc_periph_clock_enable(RCC_USART1);
 	usart_set_baudrate(USART1, baud);
